@@ -4,8 +4,8 @@ import random
 from pykeyboard import PyKeyboard
 
 k = PyKeyboard()
-interval = 0.10
-song_PATH = 'song/twilight'
+interval = 0.15
+song_PATH = 'song/gulou'
 
 def dec(code):
     tonedict = {'1-': 'y', '2-': 'u', '3-': 'i', '4-': 'o', '5-': 'p',
