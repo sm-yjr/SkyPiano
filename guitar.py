@@ -1,23 +1,32 @@
 import skypiano as sky
-from pykeyboard import PyKeyboard
 import time
 
-k = PyKeyboard()
-song_PATH = 'song/twilight'
 
+class MyGuitar:
+    def __init__(self):
+        self.data = []
 
-def play():
+def play(path):
+    time.sleep(2)
+
+    fo = open(path, 'r+')
+    tones = fo.read()
+    fo.close()
+
     buf = []
     for x in range(0, len(tones) - 1, 2):
         code = tones[x] + tones[x + 1]
         tone = sky.dec(code)
 
         if tone == 1:
-            sky.releasekey(tone)
+            continue
         elif tone == -1:
             time.sleep(sky.interval)
+        elif tone == 0:
+            sky.releasekey(buf)
+            time.sleep(sky.interval)
         else:
-            sky.releasekey(tone)
+            sky.releasekey(buf)
 
             buf = tone
 
@@ -26,10 +35,4 @@ def play():
     sky.releasekey(buf)
 
 
-time.sleep(2)
-
-fo = open(song_PATH, 'r+')
-tones = fo.read()
-fo.close()
-
-play()
+play(sky.song_PATH)

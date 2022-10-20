@@ -2,11 +2,12 @@ import skypiano as sky
 from pykeyboard import PyKeyboard
 import time
 
-k = PyKeyboard()
-song_PATH = 'song/DaBeiZhou'
+
+song_PATH = 'song/gulouk'
 
 
 def tap(tone):
+    k = PyKeyboard()
     k.press_key(tone)
     time.sleep(0.05)
     k.release_key(tone)
@@ -18,9 +19,11 @@ def play():
         tone = sky.dec(code)
         if tone == -1:
             time.sleep(sky.interval)
+        elif tone == 0:
+            time.sleep(sky.interval)
         else:
             if tone == 1:
-                a = 1
+                continue
             else:
                 tap(tone)
                 time.sleep(sky.interval)
