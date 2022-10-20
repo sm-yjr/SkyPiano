@@ -1,10 +1,9 @@
-import random
-from skypiano import dec
+import skypiano as sky
 from pykeyboard import PyKeyboard
 import time
 
 k = PyKeyboard()
-interval = 0.25 + random.uniform(-0.03, 0.03)
+song_PATH = 'song/DaBeiZhou'
 
 
 def tap(tone):
@@ -16,15 +15,15 @@ def tap(tone):
 def play():
     for x in range(0, len(tones) - 1, 2):
         code = tones[x] + tones[x + 1]
-        tone = dec(code)
+        tone = sky.dec(code)
         if tone == -1:
-            time.sleep(interval)
+            time.sleep(sky.interval)
         else:
             if tone == 1:
                 a = 1
             else:
                 tap(tone)
-                time.sleep(interval)
+                time.sleep(sky.interval)
 
 
 time.sleep(2)
@@ -33,7 +32,7 @@ time.sleep(2)
 # time.sleep(3)
 # k.press_keys(['command', 'shift', '4'])
 
-fo = open('thankyou', 'r+')
+fo = open(song_PATH, 'r+')
 tones = fo.read()
 fo.close()
 
