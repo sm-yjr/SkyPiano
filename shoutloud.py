@@ -1,8 +1,8 @@
 import _thread
 import time
 import skypiano as sky
-import guitar
-import firstSong
+
+
 
 def print_time(threadName, delay):
     count = 0
@@ -14,9 +14,9 @@ def print_time(threadName, delay):
 
 try:
     time.sleep(2)
-    _thread.start_new_thread(guitar.play, ())
-    time.sleep(2)
-    _thread.start_new_thread(guitar.play, ())
+    _thread.start_new_thread(sky.shout, ("thread1", 0.1,))
+    time.sleep(0.4)
+    _thread.start_new_thread(sky.shout, ("thread2", 0.1,))
 
 except:
     print("Error!")

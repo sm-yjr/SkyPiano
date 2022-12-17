@@ -1,11 +1,11 @@
 import time
-import random
+
 
 from pykeyboard import PyKeyboard
 
 k = PyKeyboard()
-interval = 0.15
-song_PATH = 'song/gulou'
+interval = 0.33
+song_PATH = 'song/DaBeiZhou'
 
 def dec(code):
     tonedict = {'1-': 'y', '2-': 'u', '3-': 'i', '4-': 'o', '5-': 'p',
@@ -22,7 +22,6 @@ def presskey(key):
 
 # random.uniform(-0.03,0.03)
 
-
 def releasekey(buf):
     if buf:
         k.release_key(buf)
@@ -31,12 +30,10 @@ def releasekey(buf):
 
 
 def shout(name, delay):
-    count = 100
+    count = 1000
     while count >= 0:
         s = PyKeyboard()
         print(name)
-        s.press_key('space')
+        s.tap_key('q')
         time.sleep(delay)
-        s.release_key('space')
-        time.sleep(0.36)
         count -= 1
