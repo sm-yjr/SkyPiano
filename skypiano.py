@@ -5,7 +5,7 @@ from pykeyboard import PyKeyboard
 
 k = PyKeyboard()
 interval = 0.15
-song_PATH = 'song/gulou'
+song_PATH = 'song/cloud&sea'
 
 def dec(code):
     tonedict = {'1-': 'y', '2-': 'u', '3-': 'i', '4-': 'o', '5-': 'p',
